@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <record id="fiscalyear_close_analytic_account" model="ir.ui.view">
+            <field name="name">fiscalyear.close.analytic.account.form</field>
+            <field name="model">account.fiscalyear.close</field>
+            <field name="inherit_id" ref="account.view_account_fiscalyear_close"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='report_name']" position="after">
+                    <field name="is_include_analytic"/>
+                    <field name="analytic_account_id" attrs="{'invisible': [('is_include_analytic', '=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
